@@ -2,10 +2,28 @@ import pygame
 
 from game.objects.GObject import GObject
 
-class Player(GObject):
+def load_image(name, colorkey=None):
+    try:
+        image = pygame.image.load(name)
+    except pygame.error, message:
+        print 'Cannot load image:', name
+        
+# class Head(pygame.sprite.Sprite):
+#     def __init__(self):
+#         pygame.sprite.Sprite.__init__(self) 
+#         self.image, self.rect = load_image('head.jpg', -1)
+#         screen = pygame.display.get_surface()
+#         self.area = screen.get_rect()
+#         self.STEP = 9
+#         self.MARGIN = 12
+#         self.xstep = self.STEP 
+#         self.ystep = 0
+#         self.dizzy = 0
+#         self.direction = 'right'
+class Player(pygame.sprite.Sprite):
     def __init__(self, options):
-        GObject.__init__(self, options)
-        self.color = options.color
+        pygame.sprite.Sprite.__init__(self) 
+        self.image, self.rect = load_image('ManRun1', -1)
         self.speed = options.speed
 
         # Movement Flags
@@ -53,8 +71,8 @@ class Player(GObject):
             
         self.move(dx, dy)
 
-    def draw(self, surface):
-        pygame.draw.rect(surface, self.color, self.bounds)
+    # def draw(self, surface):
+        # pygame.draw.rect(surface, self.color, self.bounds)
 
 def jsonMap(do):
     do.color = (do.r, do.g, do.b)
