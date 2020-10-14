@@ -1,6 +1,6 @@
 import pygame
 
-from game.objects.GObject import GObject
+# from game.objects.GObject import GObject
 
 def load_image(name, colorkey=None):
     try:

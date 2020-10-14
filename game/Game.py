@@ -6,9 +6,9 @@ class Game:
         options = type('', (), {})()
         options.x = 400
         options.y = 300
-        options.w = 20
-        options.h = 20
-        options.color = (128, 128, 128)
+        # options.w = 20
+        # options.h = 20
+        # options.color = (128, 128, 128)
         options.speed = 3
 
         self.player = Player(options)
